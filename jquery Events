@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        p {
+            background: yellow;
+            font-weight: bold;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        p.over {
+            background: #ccc;
+        }
+
+        span {
+            color: red;
+        }
+
+        img {
+            width: 30%;
+        }
+
+        form {
+            border: 2px solid green;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form>
+        <p>p tag</p>
+
+        <img src="https://images.pexels.com/photos/2295744/pexels-photo-2295744.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            alt="@errorakuma">
+
+        <input type="text"> <span> </span></input>
+        <textarea name="" id="" cols="30" rows="10">@errorakuma </textarea>
+
+        <button type="submit"> submit</button>
+
+
+
+        <h3> Hover me </h3>
+        <button id="b3"> Remove event </button>
+        <h3> Hover me </h3>
+    </form>
+    <script>
+        i = 0;
+        $(document).ready(() => {
+            // MouseEvent
+
+            // $("p").click(function () {
+            // $(this).hide();
+            // });
+
+            // $("p").dblclick(function () {
+            // $(this).hide();
+            // });
+
+            // $("p").mouseenter(function () {
+            // alert("You entered p!");
+            // });
+
+            // $("textarea").mouseover(function () {
+            // alert("Bye! mouse over");
+            // });
+
+            // $("textarea").mouseout(function () {
+            // alert("Bye! mouse out!");
+            // });
+
+            // $("p").mouseleave(function () {
+            // alert("Bye! You now leave p!");
+            // });
+            // 
+            // $("p").mouseup(function () {
+            // $(this).hide();
+            // alert("Mouse up over p!");
+            // });
+
+            // $("p").mousedown(function () {
+            // $(this).text("@errorakuma").show().fadeOut(2000);
+            // });
+
+
+            // $("p").mousemove(function () {
+            // $(this).hide();
+            // alert("Mouse MOVE over p!");
+            // });
+
+            // FORMEvent
+
+            // $("input").focus(function () {
+            // $(this).css("background-color", "red");
+            // });
+
+            // $("input").blur(function () {
+            // $(this).css("background-color", "green");
+            // });
+
+            // $("textarea").change(function () {
+            // alert("The text has been changed.");
+            // });
+
+            // $("form").submit(function () {
+            // alert("Form submitted!");
+            // });
+
+            // $("form").focusin(function () {
+            // $(this).css("background-color", "BLUE");
+            // });
+
+            // $("form").focusout(function () {
+            // $(this).css("background-color", "#ffffff");
+            // });
+
+            // KEYBORD EVENTS
+
+            // $("input").keydown(function (event) {
+            // $("span").text("Key: " + event.which);
+            // });
+
+
+            // $("input").keypress(function () {
+
+            // $('span').text(i += 1);
+            // })
+
+            // $("input").keydown(function () {
+            // $(this).css("background-color", "red");
+            // });
+            // $("input").keyup(function () {
+            // $('span').text(i += 1);
+            // })
+
+
+            // $("input").select(function () {
+            // alert("Text selected!");
+            // });
+            // 
+            // $("img").load(function () {
+            // alert("loaded");
+            // });
+
+            // $(window).unload(function () {
+            // alert("unloaded");
+            // });
+
+            // $("body").delegate("p", "click", function () {
+            // $(this).after("<p>p </p>");
+            // })
+
+            // $('p').bind("click", function () {
+            // alert("bind ")
+            // })
+
+            // $("input").hover(function () {
+
+            // $(this).css("background-color", "red");
+            // }, function () {
+            // $(this).css("background-color", "green");
+            // });
+
+
+            // $("p").bind("click", function (event) {
+            // var str = "( " + event.pageX + ", " + event.pageY + " )";
+            // $("span").text("This is a single click! " + str);
+            // });
+            // $("p").bind("dblclick", function () {
+            // $("span").text("This is a double click on " + this.nodeName);
+            // });
+            // $("p").bind("mouseenter mouseleave", function (event) {
+            // $(this).toggleClass("over");
+            // });
+
+
+
+
+            $("h3").bind("mouseover", function () {
+                $(this).css({ "background-color": "pink", "font-size": "25px" }).text("Hovered");
+            });
+            $("#b3").click(function () {
+                $("h3").unbind("mouseover");
+            });
+
+
+
+
+        })
+
+    </script>
+</body>
+
+</html>
