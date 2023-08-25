@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // Question 1: 
+        //   For a given 3 digit number, find whether it is Armstrong number or not. An Armstrong number of three digits is an integer such that the sum of the cubes of its digits is equal to the number itself.
+        //   Return “Yes” if it is a Armstrong number else return “No”.
+        // 
+
+        function isArmstrongNumber(num) {
+            let digits = num.toString().split('').map(Number);
+
+            let sumOfCubes = digits.reduce((sum, digit) => sum + Math.pow(digit, 3), 0);
+
+            if (sumOfCubes === num) {
+                return "Yes";
+            } else {
+                return "No";
+            }
+        }
+
+
+
+
+        console.log(isArmstrongNumber(555))
+
+        console.log(isArmstrongNumber(153))
+
+        console.log(isArmstrongNumber(370))
+
+        // 
+
+
+
+        // Question 2: 
+        //   Given an array a of size N which contains elements from 0 to N-1, you need to find all the elements occurring more than once in the given array.
+        //   Return the answer in ascending order. If no such element is found, return list containing [-1].
+        // */
+
+
+        function findDuplicates(arr) {
+            let duplicates = [];
+
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[Math.abs(arr[i])] >= 0) {
+                    arr[Math.abs(arr[i])] = -arr[Math.abs(arr[i])];
+                }
+
+                else {
+                    duplicates.push(Math.abs(arr[i]));
+                }
+            }
+
+            duplicates.sort((a, b) => a - b);
+
+            if (duplicates.length === 0) {
+                return [-1];
+            } else {
+                return duplicates;
+            }
+        }
+
+
+
+        let a = [0, 3, 1, 2]
+        console.log(findDuplicates(a))
+
+        let b = [2, 3, 1, 2, 3]
+        console.log(findDuplicates(b))
+
+
+
+        // 
+
+
+
+
+
+    </script>
+</body>
+
+</html>
