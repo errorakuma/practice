@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jupyter notebook</title>
+    <script src="" defer></script>
+</head>
+
+<body>
+    <script>
+        //Q1. Write a program to find all pairs of an integer array whose sum is equal to a given number?
+
+        function findpairs(ar, key) {
+            let result = [];
+            let uniqueset = new Set(ar);
+
+            let unique = [];
+
+            for (const i of uniqueset) {
+                unique.push(i);
+            }
+            for (let i = 0; i < unique.length; i++) {
+                let pairs = [];
+
+                for (let j = 0; j < unique.length; j++) {
+                    if (unique[i] + unique[j] == key) {
+                        pairs.push(unique[i], unique[j]);
+                    }
+                }
+
+                if (pairs.length == 2) {
+                    result.push(pairs);
+                }
+            }
+            return result;
+        }
+
+        let ar1 = [1, 2, 4, 5, 2, 6, 8, 8, 10, 10, 10, -2, 0, -1];
+        let key = 7;
+
+        console.log(findpairs(ar1, key));
+
+        //Q2. Write a program to reverse an array in place? In place means you cannot create a new array. You have to update the original array.
+
+        function reverse(str) {
+            let start = 0;
+            let end = str.length - 1;
+            while (start < end) {
+                let temp = str[start];
+
+                str[start] = str[end];
+                str[end] = temp;
+                start++;
+                end--;
+            }
+        }
+
+        var ar2 = [13, 11, 8, 4, 19, 22];
+
+        console.log(ar2);
+        reverse(ar2);
+        console.log(ar2);
+
+        // Q3. Write a program to check if two strings are a rotation of each other?
+
+        function rotation(str1, str2) {
+            if (str1.length !== str2.length) {
+                return false;
+            }
+
+            str1 += str1;
+
+            if (str1.includes(str2)) {
+                return true;
+            }
+
+            return false;
+        }
+
+        let str1 = "ABCD";
+        let str2 = "CDAB";
+        console.log(rotation(str1, str2));
+
+        // Q4.Write a program to print the first non-repeated character from a string?
+
+        function firstNonRepeatedChar(str) {
+            let charcount = {};
+            for (let i = 0; i < str.length; i++) {
+                let char = str[i];
+                if (char in charcount) {
+                    charcount[char]++;
+                } else {
+                    charcount[char] = 1;
+                }
+
+                if (charcount[char] == 1) {
+                    return char;
+                }
+            }
+        }
+
+        let string = "hello";
+        console.log(firstNonRepeatedChar(string));
+
+        // Q5.Read about the Tower of Hanoi algorithm. Write a program to implement it.
+
+        // Step 1: Move n - 1 disks from source to aux
+        // Step 2: Move nth disk from source to dest
+        // Step 3: Move n - 1 disks from aux to dest
+
+        function towerOfHanoi(n, source, aux, dest) {
+            if (n === 1) {
+                console.log(`Move disk 1 from ${source} to ${dest}`);
+                return;
+            }
+            towerOfHanoi(n - 1, source, dest, aux);
+            console.log(`Move disk ${n} from ${source} to ${dest}`);
+            towerOfHanoi(n - 1, aux, source, dest);
+        }
+
+        let n = 3;
+
+        towerOfHanoi(n, "A", "B", "C");
+
+        // Q6.Read about infix, prefix, and postfix expressions. Write a program to convert postfix to prefix expression.
+
+        function postfixToPrefix(str) {
+            let stack = [];
+
+            for (let i = 0; i < str.length; i++) {
+                let char = str[i];
+
+                if (operator(char)) {
+                    let op1 = stack.pop();
+
+                    let op2 = stack.pop();
+
+                    let temp = char + op2 + op1;
+
+                    stack.push(temp);
+                } else {
+                    stack.push(char);
+                }
+            }
+
+            return stack.pop();
+        }
+
+        function operator(str) {
+            return ["+", "-", "*", "/"].includes(str);
+        }
+
+        // Output: *+AB-CD
+        let postfix = "AB+CD-*";
+        console.log(postfixToPrefix(postfix));
+
+        //Q7. Write a program to convert prefix expression to infix expression.
+        function prefixToInfix(str) {
+            let stack = [];
+            for (let i = str.length - 1; i >= 0; i--) {
+                let char = str[i];
+
+                if (operator(char)) {
+                    let op1 = stack.pop();
+
+                    let op2 = stack.pop();
+
+                    let temp = "(" + op1 + char + op2 + ")";
+
+                    stack.push(temp);
+                } else {
+                    stack.push(char);
+                }
+            }
+            return stack.pop();
+        }
+
+        function operator(str) {
+            return ["+", "-", "*", "/"].includes(str);
+        }
+
+        // Output: ((A+B)*(C-D))
+        let prefix = "*+AB-CD";
+        console.log(prefixToInfix(prefix));
+
+        // Q8.Write a program to check if all the brackets are closed in a given code snippet.
+
+        function isBalanced(code) {
+            let stack = [];
+            let brackets = {
+                "(": ")",
+                "[": "]",
+                "{": "}",
+            };
+
+            for (let i = 0; i < code.length; i++) {
+                let char = code[i];
+
+                if (brackets[char]) {
+                    stack.push(char);
+                } else if (Object.values(brackets).includes(char)) {
+                    if (stack.length === 0 || brackets[stack.pop()] !== char) {
+                        return false;
+                    }
+                }
+            }
+
+            return stack.length === 0;
+        }
+
+        let code = "function test() { return [1, 2, 3];}";
+        // let code = "{{[([{}])]";
+        console.log(isBalanced(code));
+
+        // Q9.Write a program to reverse a stack.
+
+        function reverseStack(stack) {
+            if (stack.length === 0) {
+                return false;
+            }
+
+            let temp = stack.pop();
+
+            reverseStack(stack);
+            insertAtBottom(stack, temp);
+        }
+
+        function insertAtBottom(stack, item) {
+            if (stack.length === 0) {
+                stack.push(item);
+
+                return;
+            }
+            let temp = stack.pop();
+
+            insertAtBottom(stack, item);
+            stack.push(temp);
+        }
+
+        let rstack = [1, 2, 3, 4, -1, 0];
+        reverseStack(rstack);
+        console.log(rstack);
+
+        // Q10. Write a program to find the smallest number using a stack.
+        class Stack {
+            constructor() {
+                this.items = [];
+                this.minStack = [];
+            }
+            push(item) {
+                this.items.push(item);
+                if (
+                    this.minStack.length === 0 ||
+                    item <= this.minStack[this.minStack.length - 1]
+                ) {
+                    this.minStack.push(item);
+                }
+            }
+            pop() {
+                let item = this.items.pop();
+                if (item === this.minStack[this.minStack.length - 1]) {
+                    this.minStack.pop();
+                }
+                return item;
+            }
+            getMin() {
+                return this.minStack[this.minStack.length - 1];
+            }
+        }
+        let stack = new Stack();
+
+        stack.push(3);
+        stack.push(5);
+        console.log(stack.getMin());
+        stack.push(2);
+        // stack.push(1);
+        // console.log(stack.getMin());
+        // stack.pop();
+        // stack.pop();
+        console.log(stack.getMin());
+        // console.clear();
+    </script>
+</body>
+
+</html>
