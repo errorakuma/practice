@@ -103,7 +103,7 @@ $(document).ready(function () {
     ];
 
     localStorage.setItem("player", JSON.stringify(players));
-    let userp = JSON.parse(localStorage.getItem("players")) || [];
+    let userp = JSON.parse(localStorage.getItem("player")) || [];
 
     if (localStorage.getItem("players") === null) {
         localStorage.setItem("players", JSON.stringify(userp));
