@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPL Circket Teams</title>
+    <script src="https://kit.fontawesome.com/35c398e458.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" /> -->
+
+
+</head>
+
+<body>
+    <header>
+        <nav id="topbar">
+            <div id="left-menu">
+                <div id="logo"><a href="#">
+                        <img
+                            src="https://upload.wikimedia.org/wikipedia/en/thumb/8/84/Indian_Premier_League_Official_Logo.svg/1200px-Indian_Premier_League_Official_Logo.svg.png">
+                    </a></div>
+            </div>
+            <div id="search-wrapper">
+                <i class="fas fa-search"></i>
+                <input id="search-box" type="text" name="search" placeholder="Search for Team" />
+            </div>
+            <div id="right-menu">
+                <div id="wrapper">
+                    <a href="#" id="addTeam">Team <i class="fas fa-add"></i></a>
+                    <div id="formContainer" class="hidden">
+                        <form id="teamFormt">
+                            <button type="button" id="closeButton">X</button>
+                            <label for="teamName">Team Name:</label>
+                            <input type="text" id="teamName" name="teamName" required><br><br>
+                            <label for="imageURL">Image URL:</label>
+                            <input type="text" id="imageURL" name="imageURL" required><br><br>
+                            <input type="submit" value="Submit">
+                        </form>
+                    </div>
+
+                    <a href="#" id="addplayer">Players<i class="fas fa-add"></i></a>
+                    <div id="formContainerplayer" class="hidden">
+                        <form id="teamFormp">
+                            <button type="button" id="closeButtonp">X</button>
+                            <label for="playerName">Player Name:</label>
+                            <input type="text" id="playerName" name="playerName" required><br><br>
+                            <label for="teamName">Team Name:</label>
+                            <input type="text" id="teamNamep" name="teamName" required><br><br>
+                            <label for="imageURL">Image URL:</label>
+                            <input type="text" id="pimageURL" name="imageURL"
+                                value="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSH2DXJUwFBubrXsBZIGut2exeBPy8qtfWROQ&usqp=CAU"><br><br>
+                            <label for="price">Price:</label>
+                            <input type="text" id="price" name="price"><br><br>
+                            <label for="isPlaying">isPlaying:</label>
+                            <select id="isPlaying" name="isPlaying">
+                                <option value="true">true</option>
+                                <option value="false">false</option>
+                            </select><br><br>
+                            <label for="descrpition">Description:</label>
+                            <select id="descrpition" name="descrpition">
+                                <option value="wicketkeeper">wicketkeeper</option>
+                                <option value="Batsman">Batsman</option>
+                                <option value="All-rounder">All-rounder</option>
+                            </select><br><br>
+                            <input type="submit" value="Submit">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+
+
+
+
+
+
+        <div id="teams">
+
+        </div>
+
+    </main>
+
+    <footer>
+        <div>
+            <p>IPL 2023</p>
+
+        </div>
+
+    </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="index.js"></script>
+    <script src="./search.js"></script>
+
+
+
+</body>
+
+</html>

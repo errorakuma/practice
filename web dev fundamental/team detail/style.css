@@ -1,0 +1,172 @@
+#teamdetails {
+  /* height: 500px; */
+  /* border: 2px solid green; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#center {
+  width: 100%;
+  /* border: 2px solid green; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  flex-direction: column;
+}
+
+#center div {
+  width: 500px;
+  display: flex;
+  align-items: center;
+
+  /* border: 1px solid black; */
+}
+
+#center div span {
+  margin: 10px;
+  padding: 10px;
+  font-size: 28px;
+  /* border: 1px solid black; */
+}
+
+#center img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+}
+
+#topbar {
+  width: 100%;
+  box-shadow: 0 2px 5px #ccc;
+  background-color: white;
+  z-index: 10;
+
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 16px 8%
+}
+
+#left-menu {
+  display: inline-flex;
+  justify-content: start;
+  align-items: center;
+}
+
+
+#logo img {
+  width: 20%;
+  font-size: 36px;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin-right: 16px;
+}
+
+
+#left-menu>a {
+  text-decoration: none;
+  color: black;
+  margin-left: 32px;
+  text-transform: uppercase;
+  font-weight: 600;
+  cursor: pointer;
+
+}
+
+#search-wrapper {
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+}
+
+#search-wrapper>i {
+  position: absolute;
+  color: #999;
+  font-size: 18px;
+  top: 50%;
+  left: 18px;
+  transform: translateY(-50%);
+}
+
+#search-box {
+  width: 100%;
+  border: 1px solid rgb(245, 242, 242);
+  background-color: rgb(245, 242, 242);
+  box-sizing: border-box;
+  padding: 10px 24px 8px 48px;
+  color: black;
+  outline: none;
+  border-radius: 10px;
+}
+
+
+footer {
+  width: 100%;
+  background-color: #1c1b1e;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 4% 8%;
+  color: white;
+  font-size: 32px;
+}
+
+footer>div {
+  padding-left: 60px;
+  padding-right: 60px;
+}
+
+/* ----------------------------card */
+#wrapper {
+  margin: 30px;
+  padding: 20px;
+}
+
+.card {
+  width: 30.3%;
+  display: inline-block;
+  border: 1px solid;
+  margin: 10px;
+  border-radius: 5px;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.card:hover {
+  box-shadow: 1px 1px 10px 0px blue;
+}
+
+.cardImage {
+  width: 150%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.cardImage img {
+  width: 100%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.right {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.right span {
+  font-size: 28px;
+
+  margin: 8px;
+}

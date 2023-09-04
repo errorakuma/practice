@@ -1,0 +1,265 @@
+main {
+
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 100px 0;
+}
+
+
+#teams {
+    width: 90%;
+}
+
+
+.card {
+    border: 2px solid green;
+    width: 30.3%;
+    display: inline-block;
+    margin: 10px;
+    border-radius: 5px;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.card:hover {
+    box-shadow: 1px 1px 10px 0px blue;
+}
+
+.cardImage {
+    height: 500px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+}
+
+.cardImage img {
+
+    height: 100%;
+    width: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+
+
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+
+#topbar {
+    width: 100%;
+    box-shadow: 0 2px 5px #ccc;
+    background-color: white;
+    z-index: 10;
+
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 16px 8%
+}
+
+#left-menu {
+    display: inline-flex;
+    justify-content: start;
+    align-items: center;
+}
+
+
+#logo img {
+    width: 20%;
+    font-size: 36px;
+    text-transform: uppercase;
+    font-weight: 400;
+    margin-right: 16px;
+}
+
+
+#left-menu>a {
+    text-decoration: none;
+    color: black;
+    margin-left: 32px;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+
+}
+
+#search-wrapper {
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+}
+
+#search-wrapper>i {
+    position: absolute;
+    color: #999;
+    font-size: 18px;
+    top: 50%;
+    left: 18px;
+    transform: translateY(-50%);
+}
+
+#search-box {
+    width: 100%;
+    border: 1px solid rgb(245, 242, 242);
+    background-color: rgb(245, 242, 242);
+    box-sizing: border-box;
+    padding: 10px 24px 8px 48px;
+    color: black;
+    outline: none;
+    border-radius: 10px;
+}
+
+
+#wrapper {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-right: 32px;
+}
+
+
+#wrapper>a {
+    width: 50%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    border-radius: 5px;
+    border: 2px solid darkblue;
+    margin: 5px;
+    font-size: 18px;
+}
+
+#wrapper i {
+    margin: 5px;
+    font-size: 24px;
+    cursor: pointer;
+    color: darkblue;
+}
+
+
+footer {
+    width: 100%;
+    background-color: #1c1b1e;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 4% 8%;
+    color: white;
+    font-size: 32px;
+}
+
+footer>div {
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+/* --------------------------------------- */
+#formContainer {
+    position: absolute;
+    right: -300px;
+    transition: right 1s;
+}
+
+#formContainer.visible {
+    right: 0;
+    top: 0;
+
+}
+
+.hidden {
+    display: none;
+}
+
+/* #formContainer, */
+/* #formContainerplayer { */
+/* position: fixed; */
+/* top: 50%; */
+/* left: 50%; */
+/* transform: translate(-50%, -50%); */
+/* } */
+/*  */
+/* .hidden { */
+/* display: none; */
+/* } */
+/*  */
+#formContainerplayer {
+    position: absolute;
+    right: -300px;
+    transition: right 1s;
+}
+
+#formContainerplayer.visible {
+    right: 0;
+    top: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+
+
+
+
+
+form {
+    font-family: Arial, sans-serif;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: darkblue;
+    color: aqua;
+    font-size: 18px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+form input[type="text"],
+form select {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 24px;
+}
+
+form input[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 18px;
+}
+
+form input[type="submit"]:hover {
+    background-color: #3e8e41;
+}
