@@ -1,0 +1,277 @@
+.container {
+    color: white;
+    margin: 20px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.product {
+    box-shadow: 0px 0px 10px 0px black;
+    border-radius: 8px;
+    padding: 20px;
+    width: 60%;
+}
+
+.top {
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10px 0px;
+    padding: 0px 10px 0px 10px;
+}
+
+.top p {
+    text-align: center;
+    width: 150px;
+}
+
+.buttom p {
+    width: 150px;
+
+    text-align: center;
+}
+
+.circle {
+    border-radius: 50px;
+    background-color: #485b6d;
+    cursor: pointer;
+    display: inline-block;
+    padding: 15px;
+}
+
+.delete {
+    text-align: center;
+    border-radius: 50px;
+
+    background-color: #485b6d;
+
+    cursor: pointer;
+
+    padding: 8px;
+}
+
+.buttom {
+    margin: 10px 0px;
+    padding: 0px 10px 0px 10px;
+
+    background-color: #567086;
+    display: flex;
+
+    justify-content: space-around;
+    align-items: center;
+}
+
+.buttom:hover {
+    background-color: #586a7b;
+}
+
+.product>button {
+    background-color: #f5a623;
+    border: none;
+    width: 100%;
+    height: 50px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.categroy {
+    box-shadow: 0px 0px 10px 0px black;
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.categroy div {
+    background-color: #567086;
+    margin: 10px 0px;
+    padding: 0px 10px 0px 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.categroy div:hover {
+    background-color: #586a7b;
+}
+
+.categroy>button {
+    background-color: #f5a623;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    height: 50px;
+}
+
+/* ---------------------------------------new product */
+
+.newcontainer {
+    color: white;
+    padding: 20px;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.newproductform {
+    margin: 20px;
+    padding: 20px;
+    width: 80%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 10px 1px black;
+}
+
+.split {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 40%;
+}
+
+.left input,
+select {
+    margin: 10px;
+    height: 30px;
+}
+
+.left div {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+
+.right {
+    width: 40%;
+    display: flex;
+    justify-content: end;
+    flex-direction: column;
+    align-items: end;
+    overflow: hidden;
+}
+
+figure {
+    margin-bottom: 20px;
+}
+
+figure img {
+    width: 100%;
+    height: auto;
+}
+
+figcaption {
+    text-align: center;
+    font-size: 14px;
+    color: #f5a623;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.right label {
+    padding: 10px;
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+}
+
+label:hover {
+    background-color: #45a049;
+}
+
+.newproductform div {
+    margin: 5px;
+}
+
+.submit {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.submit button {
+    width: 90%;
+    background-color: #f5a623;
+    border: none;
+    height: 30px;
+    cursor: pointer;
+}
+
+@media (max-width: 767px) {
+    .container {
+        flex-direction: column-reverse;
+        font-size: 12px;
+    }
+
+    .product {
+        width: 100%;
+        overflow: auto;
+
+        margin: 30px 0px 0px 0px;
+    }
+
+    .product .buttom {
+        font-size: 8px;
+
+
+    }
+
+    .product .buttom button {
+        font-size: 8px;
+
+    }
+
+    .product .top {
+        font-size: 8px;
+
+    }
+
+    .split {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+
+    .newcontainer {
+        padding: 0;
+        margin: 0;
+
+    }
+
+    .newproductform {
+        padding: 0;
+        margin: 0;
+
+    }
+
+    .left,
+    .right {
+        width: 95%;
+        margin: 20px 0px;
+        padding: 0;
+
+    }
+    .left div{
+        width: 100%;
+
+    }
+}

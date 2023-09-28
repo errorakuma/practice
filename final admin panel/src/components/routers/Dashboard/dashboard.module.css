@@ -1,0 +1,120 @@
+.container {
+    color: white;
+    margin: 20px;
+    padding: 20px;
+}
+
+.cards {
+    margin: 20px;
+    padding: 20px;
+}
+
+.card {
+
+    display: inline-block;
+    width: 45%;
+    margin: 20px;
+    padding: 10px;
+    box-shadow: 0px 0px 10px 0px black;
+    border-radius: 8px;
+}
+
+strong {
+    color: yellow;
+}
+
+/* -------------------------------------notification -------------------------*/
+.scroll {
+    overflow-y: scroll;
+    height: 280px;
+}
+
+.notif {
+    background-color: #567086;
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    padding: 5px;
+}
+
+.notif div {
+    padding: 0px 10px;
+}
+
+.notif img {
+    width: 10%;
+    margin: 10px;
+    border-radius: 50%;
+    height: 80px;
+}
+
+/*------------------------- orderlist -------------------------- */
+
+.order {
+    width: 80%;
+    bottom: 0px;
+    box-shadow: 0px 0px 10px black;
+    border-radius: 8px;
+    margin: 0px auto;
+    padding: 10px;
+    overflow: auto;
+    height: 400px;
+
+}
+
+.order table {
+    width: 100%;
+
+    border-radius: 8px;
+
+}
+
+.order td {
+    text-align: left;
+    padding: 10px 0px 0px 10px;
+}
+
+.dot {
+    border-radius: 100%;
+
+    margin: 5px;
+    width: 5px;
+    height: 5px;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 767px) {
+    .container{
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 8px;
+    }
+    .notif img {
+        width: 20%;
+    }
+    .cards {
+        width: 100%;
+        padding: 0;
+    }
+
+    .card {
+        width: 95%;
+        margin: 20px 0px;
+    }
+
+
+    .order {
+        width: 95%;
+    }
+
+    .order table {
+        width: 900px;
+
+
+    }
+}
