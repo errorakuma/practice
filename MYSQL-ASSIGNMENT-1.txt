@@ -1,0 +1,103 @@
+
+
+
+
+Assignment-1 --- Create two tables: EmployeeDetails and EmployeeSalary
+.
+
+Columns for EmployeeDetails: EmpId FullName ManagerId DateOfJoining City && Columns for EmployeeSalary: : EmpId Project Salary Variable.
+
+
+CREATE TABLE EmployeeDetails (
+    EmpId INT PRIMARY KEY,
+    FullName VARCHAR(100),
+    ManagerId INT,
+    DateOfJoining DATE,
+    City VARCHAR(50)
+);
+
+CREATE TABLE EmployeeSalary (
+    EmpId INT PRIMARY KEY,
+    Project VARCHAR(50),
+    Salary DECIMAL(10, 2),
+    Variable DECIMAL(10, 2)
+);
+
+
+
+SQL Query to fetch records that are present in one table but not in another table.
+
+
+SELECT * FROM EmployeeDetails
+WHERE EmpId NOT IN (SELECT EmpId FROM EmployeeSalary);
+
+
+
+
+SQL query to fetch all the employees who are not working on any project.
+
+
+SELECT * FROM EmployeeDetails
+WHERE EmpId NOT IN (SELECT EmpId FROM EmployeeSalary WHERE Project IS NOT NULL);
+
+
+SQL query to fetch all the Employees from EmployeeDetails who joined in the Year 2020.
+
+
+
+SELECT * FROM EmployeeDetails
+WHERE YEAR(DateOfJoining) = 2020;
+
+
+Fetch all employees from EmployeeDetails who have a salary record in EmployeeSalary.
+
+
+SELECT * FROM EmployeeDetails
+WHERE EmpId IN (SELECT EmpId FROM EmployeeSalary);
+
+
+
+Write an SQL query to fetch a project-wise count of employees.
+
+
+SELECT Project, COUNT(EmpId) as EmployeeCount 
+FROM EmployeeSalary 
+GROUP BY Project;
+
+Fetch employee names and salaries even if the salary value is not present for the employee.
+
+SELECT EmployeeDetails.EmpId, EmployeeDetails.FullName, EmployeeSalary.Salary 
+FROM EmployeeDetails 
+LEFT JOIN EmployeeSalary ON EmployeeDetails.EmpId = EmployeeSalary.EmpId;
+
+Write an SQL query to fetch all the Employees who are also managers.
+
+SELECT * FROM EmployeeDetails 
+WHERE EmpId IN (SELECT DISTINCT ManagerId FROM EmployeeDetails);
+
+
+Write an SQL query to fetch duplicate records from EmployeeDetails.
+
+
+SELECT FullName, COUNT(*) 
+FROM EmployeeDetails 
+GROUP BY FullName 
+HAVING COUNT(*) > 1;
+
+
+Write an SQL query to fetch only odd rows from the table.
+
+
+
+SELECT * FROM EmployeeDetails 
+WHERE MOD(EmpId, 2) <> 0;
+
+
+Write a query to find the 3rd highest salary from a table without top or limit keyword.
+
+
+SELECT MIN(Salary) 
+FROM (SELECT DISTINCT Salary 
+      FROM EmployeeSalary 
+      ORDER BY Salary DESC) AS Salaries 
+LIMIT 2, 1;
