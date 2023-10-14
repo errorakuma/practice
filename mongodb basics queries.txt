@@ -1,0 +1,84 @@
+//show databases
+show databases;
+
+//Create a database
+use live_session;
+
+//show collections
+show collections;
+
+//Create a collection
+db.createCollection("students");
+
+//Insert a document
+db.students.insertOne({name:"John", age: 25, city:"New York"});
+
+//Insert multiple documents
+db.students.insertMany([
+    {name:"Alex", age: 29, city:"Texas"},
+    {name:"James", age: 20, city:"Ohio"},
+    {name:"Mary", age: 30, city:"California"}
+]);
+
+//Find all documents
+db.students.find();
+
+//Find documents with filter
+db.students.find({name:"Alex"});
+db.students.find({age:{$gt:25}});
+db.students.find({age:{$lt:25}});
+db.students.find({age:{$gte:25}});
+db.students.find({age:{$lte:25}});
+db.students.find({age:{$ne:25}});
+db.students.find({age:{$in:[25,30]}});
+db.students.find({age:{$nin:[25,30]}});
+
+//Find documents with logical operators
+db.students.find({$or:[{age:25},{age:30}]});
+db.students.find({$and:[{age:25},{age:30}]});
+db.students.find({$nor:[{age:25},{age:30}]});
+
+//Sorting documents
+db.students.find().sort({age:1});
+db.students.find().sort({age:-1});
+db.students.find().sort({name:1});
+db.students.find().sort({name:-1});
+db.students.find().sort({name:1, age:-1});
+
+//Count documents
+db.students.countDocuments();
+db.students.find({age:{$gt:25}}).count();
+
+//Limit documents
+db.students.find().limit(2);
+db.students.find().sort({age:-1}).limit(2);
+
+//Skip documents
+db.students.find().skip(2);
+db.students.find().sort({age:-1}).skip(2);
+
+//Update documents
+db.students.updateOne({name:"Alex"},{$set:{age:40}});
+db.students.updateMany({age:{$gt:25}},{$set:{age:40}});
+db.students.updateMany({age:{$gt:25}},{$inc:{age:5}});
+db.students.updateMany({age:{$gt:25}},{$inc:{age:-5}});
+db.students.updateMany({age:{$gt:25}},{$mul:{age:2}});
+db.students.updateMany({age:{$gt:25}},{$rename:{age:"age_new"}});
+db.students.updateMany({age:{$gt:25}},{$unset:{age:""}});
+
+//Delete documents
+db.students.deleteOne({name:"Alex"});
+db.students.deleteMany({age:{$gt:25}});
+db.students.deleteMany({});
+db.students.drop();
+
+//Drop a database
+db.dropDatabase();
+
+//Drop a collection
+db.students.drop();
+
+//Regex search
+db.students.find({name:/^J/});
+db.students.find({name:/hn$/});
+db.students.find({name:/hn/});
