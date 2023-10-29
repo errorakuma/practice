@@ -1,0 +1,49 @@
+ body {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column;
+     /* height: 50rem; */
+ }
+
+ button {
+     text-align: center;
+     width: 30%;
+     font-size: 24px;
+     padding: 10px;
+     margin: 10px;
+ }
+
+
+
+
+
+ div {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column;
+     width: 50%;
+     padding: 20px;
+     margin: 20px;
+ }
+
+ img {
+     width: 70%;
+ }
+
+ h3 {
+     text-align: center;
+     width: 80%;
+ }
+
+ button {
+     text-align: center;
+     width: 30%;
+     font-size: 24px;
+     padding: 10px;
+     margin: 10px;
+ }
