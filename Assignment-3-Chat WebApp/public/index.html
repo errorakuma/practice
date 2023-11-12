@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Real-time Data Dashboard</title>
+</head>
+
+<body>
+    <h1>Real-time Data Dashboard</h1>
+
+    <button onclick="addData()">Add Random Data</button>
+
+    <h2>Latest 20 Records:</h2>
+    <ul id="latestDataList"></ul>
+
+    <h2>Historical Data:</h2>
+    <label for="startDateTime">Start Date Time:</label>
+    <input type="datetime-local" id="startDateTime" />
+    <label for="endDateTime">End Date Time:</label>
+    <input type="datetime-local" id="endDateTime" />
+    <button onclick="fetchHistoricalData()">Fetch Historical Data</button>
+    <div id="historicalDataResult"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+
+    <script>
+        const socket = io();
+        socket.on("newData", (data) => {
+            const latestDataList = document.getElementById("latestDataList");
+            const listItem = document.createElement("li");
+            listItem.textContent = `Temperature: ${data.temperature}, Battery Level: ${data.batteryLevel}, Time Stamp:
+ ${data.timeStamp}`;
+            latestDataList.prepend(listItem);
+        });
+
+
+
+
+
+        async function post(url = '', data = {}) {
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+            return response.json();
+        }
+
+        async function addData() {
+            try {
+                const body = await post("/saveData");
+                console.log(body);
+            } catch (err) {
+                console.error(err);
+            }
+        }
+
+
+
+        async function fetchHistoricalData() {
+
+            const startDateTime = new Date(document.getElementById("startDateTime").value).toISOString();
+            const endDateTime = new Date(document.getElementById("endDateTime").value).toISOString();
+
+            const resultContainer = document.getElementById("historicalDataResult");
+            console.log(startDateTime);
+            console.log(endDateTime);
+
+            try {
+                const response = await fetch(
+                    `/historicalData?startDateTime=${startDateTime}&endDateTime=${endDateTime}`
+                );
+                const data = await response.json();
+
+                if (response.ok) {
+                    if (data.length === 0) {
+                        resultContainer.innerHTML = "<p>No historical data found</p>";
+                    } else {
+                        resultContainer.innerHTML = generateTable(data);
+                    }
+                } else {
+                    resultContainer.innerHTML = `<p>Error: ${data.error}</p>`;
+                }
+            } catch (error) {
+                console.error(error);
+                resultContainer.innerHTML = "<p>Error fetching historical data</p>";
+            }
+        }
+
+        function generateTable(data) {
+            const table = `
+      <table border="1">
+        <thead>
+          <tr>
+            <th>Temperature</th>
+            <th>Battery Level</th>
+            <th>Time Stamp</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${data
+                    .map(
+                        (entry) => `
+            <tr>
+              <td>${entry.temperature}</td>
+              <td>${entry.batteryLevel}</td>
+              <td>${entry.timeStamp}</td>
+            </tr>
+          `
+                    )
+                    .join("")}
+        </tbody>
+      </table>
+    `;
+
+            return table;
+        }
+    </script>
+</body>
+
+</html>
